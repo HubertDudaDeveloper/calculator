@@ -61,9 +61,10 @@ body {
   justify-content: center;
 }
 #app {
-width: 320px;
-min-height: 50vh;
-border-radius: 25px;
-box-shadow: 1px 1px 10px lightgray;
+  padding: 10px;
+  width: 320px;
+  min-height: 50vh;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px lightgray;
 }
 </style>

@@ -26,9 +26,12 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
 }
 .button {
-  border: 1px solid red;
-
+  border: 0px solid grey;
+  background-color: rgba(255, 255, 255, 0.186);
+  border-radius: 100%;
+  box-shadow: 10px 10px 10px lightgray;
 }
 </style>
