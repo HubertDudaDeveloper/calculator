@@ -1,29 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <CalcDisplay />
+    <CalcButtons :button="button"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import CalcDisplay from './components/CalcDisplay.vue'
+import CalcButtons from './components/CalcButtons.vue'
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld
+    CalcDisplay,
+    CalcButtons
+  },
+  data () {
+    return {
+      button: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    }
   }
 })
 </script>
 
 <style lang="scss">
+body {
+  display: flex;
+  justify-content: center;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+width: 320px;
+min-height: 50vh;
+border-radius: 25px;
+box-shadow: 1px 1px 10px lightgray;
 }
 </style>
