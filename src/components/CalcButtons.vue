@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-      <div v-for="(item, index) in button" :key="index" class="button">
+      <button v-for="(item, index) in button" :key="index" class="button" @click="click(item)">
         {{ item }}
-      </div>
+      </button>
     </div>
 </template>
 <script>
@@ -11,6 +11,11 @@ export default Vue.extend({
   name: 'CalcButtons',
   props: {
     button: String
+  },
+  methods: {
+    click (item) {
+      this.$emit('operation', item)
+    }
   }
 })
 </script>

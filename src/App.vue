@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <CalcDisplay />
-    <CalcButtons :button="button"/>
+    <CalcDisplay :display="display"/>
+    <CalcButtons :button="button" @operation="operation"/>
   </div>
 </template>
 
@@ -18,8 +18,39 @@ export default Vue.extend({
   },
   data () {
     return {
-      button: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+      button: ['C', '+/-', '%', '/', 7, 8, 9, '*', 4, 5, 6, '-', 1, 2, 3, '+', 0, 0, '.', '='],
+      display: ''
     }
+  },
+  methods: {
+    operation (i) {
+      switch (i) {
+        case '=':
+          this.equal()
+          break
+        case 'C':
+          this.display = ''
+          break
+        case '%':
+          this.equal()
+          this.display = this.display / 100
+          break
+        case '+/-':
+          this.display = this.display * -1
+          break
+        default:
+          this.input(i)
+      }
+    },
+    input (i) {
+      this.display = this.display.toString()
+      this.display = this.display.concat(i)
+    },
+    equal () {
+      // eslint-disable-next-line
+      this.display = eval(this.display)
+    }
+
   }
 })
 </script>
